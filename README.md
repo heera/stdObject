@@ -6,3 +6,84 @@ Php stdObject to add dynamic properties and methods
 Just from my random thoughts and ideas I've created this class as stdObject. Using this it's possible to write code like javaScript in Php. For example, it allows to add properties and methods dynamically just like JavaScript. Examples given below :
 
 
+<pre>
+<code>
+$array = array(
+    'name' => 'Sheikh Heera',
+		'age' => 35,
+		'sex' => 'Male',
+		'getInfo' => function() {
+			  $info = '';
+			  if(isset($this->name)) $info = 'Name : ' . $this->name;
+			  if(isset($this->age))  $info .= 'Age : ' . $this->age;
+			  if(isset($this->sex)) $info .= 'Sex : ' . $this->sex;
+			  return $info;
+		}
+	);
+
+	$obj = new stdObject($array);
+	$obj->address = 'My Sweet Home!';
+	echo $obj->getInfo();
+	echo 'Address : ' . $obj->address;
+</code>  
+</pre>
+
+Another Example  
+<pre>
+<code>
+  $objNew = new stdObject($obj);
+  $objNew->name = 'Robot';
+	$objNew->getAge = function() {
+		return $this->age;
+	};
+  
+	echo 'New name : ' . $objNew->name;
+	$objNew->address = "The Earth";
+	echo 'Old Age : ' . $objNew->getAge();
+	$objNew->age = 30;
+	echo 'New Age : ' . $objNew->getAge();
+	echo 'New Address : ' . $objNew->address;
+</code>  
+</pre>
+
+Another Example
+<pre>
+<code>
+  $foo = new stdObject();
+  $foo->name = "Foo";
+	echo 'Name of Foo : ' . $foo->name;
+</code>  
+</pre>
+
+Example using stdObject as a trait
+<pre>
+<code>  
+  // Class stdObject
+  class stdObject {
+		use MethodBuilder;
+	}
+
+	// Class bar
+	class Bar {
+		use MethodBuilder;
+
+		public function foo()
+		{
+			echo "I'm new foo !";
+		}
+	}
+  
+  
+  $newFoo = new Bar;
+  $newFoo->baz = "Hello World!";
+	$newFoo->showBaz = function(){
+		return $this->baz;
+	};
+  
+  
+  echo $newFoo->foo();
+  echo $newFoo->showBaz();
+</code>
+</pre>
+  
+  
