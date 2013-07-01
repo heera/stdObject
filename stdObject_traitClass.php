@@ -3,7 +3,7 @@
 // Trait MethodBuilder
 trait MethodBuilder {
 
-	/**
+  /**
       * The prototype array to hold properties.
       *
       * @var array
@@ -32,17 +32,10 @@ trait MethodBuilder {
                 }
             }
             elseif (is_object($param)) {
-                foreach ($param->prototype as $key => $value) {
-                    if(is_callable($value)) {
-                        $this->prototype[$key] = $value->bindTo($this);
-                    }
-                    elseif(is_scalar($value) || is_array($value)) {
-                        $this->prototype[$key] = $value;
-                    }
-                }
+                $this->prototype = $param->prototype;
             }
         }
-	catch(Exception $e) {
+        catch(Exception $e) {
             echo $e->getMessage() . '<br />';
             var_dump($e->getTraceAsString());
             exit;
@@ -139,79 +132,79 @@ trait MethodBuilder {
     }
 }
 
-	
+  
 // Examples :
 
-	// Class stdObject
-	class stdObject {
-		use MethodBuilder;
-	}
+  // Class stdObject
+  class stdObject {
+    use MethodBuilder;
+  }
 
-	// Class bar
-	class Bar {
-		use MethodBuilder;
+  // Class bar
+  class Bar {
+    use MethodBuilder;
 
-		public function foo()
-		{
-			echo "I'm new foo !";
-		}
-	}	
+    public function foo()
+    {
+      echo "I'm new foo !";
+    }
+  } 
 
 
-	
-	$array = array(
-		'name' => 'Sheikh Heera',
-		'age' => 35,
-		'sex' => 'Male',
-		'getInfo' => function() {
-			$info = '';
-			if(isset($this->name)) $info = 'Name : ' . $this->name .'<br />';
-			if(isset($this->age))  $info .= 'Age : ' . $this->age . '<br />';
-			if(isset($this->sex)) $info .= 'Sex : ' . $this->sex . '<br />';
-			return $info;
-		}
-	);
+  
+  $array = array(
+    'name' => 'Sheikh Heera',
+    'age' => 35,
+    'sex' => 'Male',
+    'getInfo' => function() {
+      $info = '';
+      if(isset($this->name)) $info = 'Name : ' . $this->name .'<br />';
+      if(isset($this->age))  $info .= 'Age : ' . $this->age . '<br />';
+      if(isset($this->sex)) $info .= 'Sex : ' . $this->sex . '<br />';
+      return $info;
+    }
+  );
 
-	$obj = new stdObject($array);
-	$obj->address = 'My Sweet Home!';
-	echo $obj->getInfo();
-	echo 'Address : ' . $obj->address;
+  $obj = new stdObject($array);
+  $obj->address = 'My Sweet Home!';
+  echo $obj->getInfo();
+  echo 'Address : ' . $obj->address;
 
-	echo '<br />';
-	
-	$objNew = new stdObject($obj);
-	$objNew->name = 'Robot';
-	$objNew->getAge = function() {
-		return $this->age;
-	};
-	echo '<br />';
-	echo 'New name : ' . $objNew->name;
-	echo '<br />';
-	$objNew->address = "The Earth";
-	echo 'Old Age : ' . $objNew->getAge();
-	echo '<br />';
-	$objNew->age = 30;
-	echo 'New Age : ' . $objNew->getAge();
-	echo '<br />';
-	echo 'New Address : ' . $objNew->address;
-	
-	echo '<br /><br />';
+  echo '<br />';
+  
+  $objNew = new stdObject($obj);
+  $objNew->name = 'Robot';
+  $objNew->getAge = function() {
+    return $this->age;
+  };
+  echo '<br />';
+  echo 'New name : ' . $objNew->name;
+  echo '<br />';
+  $objNew->address = "The Earth";
+  echo 'Old Age : ' . $objNew->getAge();
+  echo '<br />';
+  $objNew->age = 30;
+  echo 'New Age : ' . $objNew->getAge();
+  echo '<br />';
+  echo 'New Address : ' . $objNew->address;
+  
+  echo '<br /><br />';
 
-	$foo = new stdObject();
-	$foo->name = "Foo";
-	echo 'Name of Foo : ' . $foo->name;
-	echo '<br />';
+  $foo = new stdObject();
+  $foo->name = "Foo";
+  echo 'Name of Foo : ' . $foo->name;
+  echo '<br />';
 
-	$newFoo = new Bar;
-	$newFoo->baz = "Hello World!";
-	$newFoo->showBaz = function(){
-		return $this->baz;
-	};
+  $newFoo = new Bar;
+  $newFoo->baz = "Hello World!";
+  $newFoo->showBaz = function(){
+    return $this->baz;
+  };
 
-	$anStdObj = new stdObject(array('greet'=>'Hello!'));
-	echo $anStdObj->greet;
-	echo '<br />';
+  $anStdObj = new stdObject(array('greet'=>'Hello!'));
+  echo $anStdObj->greet;
+  echo '<br />';
 
-	echo $newFoo->foo();
-	echo '<br />';
-	echo $newFoo->showBaz();
+  echo $newFoo->foo();
+  echo '<br />';
+  echo $newFoo->showBaz();
