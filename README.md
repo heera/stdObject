@@ -50,6 +50,7 @@ Another Example
 
 Example using stdObject as a trait
 ```PHP
+
   // Class stdObject
   class stdObject {
 		use MethodBuilder;
