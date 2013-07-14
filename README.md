@@ -115,7 +115,7 @@ $anotherCls->anotherTestMethod = function(){
 echo $anotherCls->property; // 'New text'
 echo $anotherCls->anotherTestMethod(); // 'New text'
 ```
-Create another object from <code>$anotherCls</code> and inherit (by reference) all it's functionality and change/use.
+Create another object from <code>$anotherCls</code> and inherit (by reference) all it's functionality and change properties and use it.
 ```PHP
 $newRef = new Std\Std($anotherCls);
 $newRef->properties = 'Some newtext'
