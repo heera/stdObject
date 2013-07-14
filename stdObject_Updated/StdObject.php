@@ -43,6 +43,9 @@
  * 	  $this->property = 'New text';
  * 	  return $this->property;
  * };
+ *
+ * echo $anotherCls->property; // 'New text'
+ * echo $anotherCls->anotherTestMethod(); // 'New text'
  * 
  * // Create another object from $anotherCls
  * // and inherit (by reference) all it's
