@@ -5,11 +5,6 @@ Php stdObject to add dynamic properties and methods
 
 Just from my random thoughts and ideas I've created this class as stdObject. Using this it's possible to write code like javaScript in Php. For example, it allows to add properties and methods dynamically just like JavaScript. Examples given below :
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 95cd8770c3ef6b016e9b8841fc7d3e8d91d9e6a2
 ```PHP
 $array = array(
     'name' => 'Sheikh Heera',
@@ -81,11 +76,8 @@ Example using stdObject as a trait
   echo $newFoo->foo();
   echo $newFoo->showBaz();
 ```
-<<<<<<< HEAD
-
 stdObject Updated
 =================
-=======
->>>>>>> 95cd8770c3ef6b016e9b8841fc7d3e8d91d9e6a2
+This is the updated version of <code>stdObject</code> required <code>PHP 5.4+</code>. This can inherit other <code>stdObjects</code> by reference and also supports cloning too.
   
   
