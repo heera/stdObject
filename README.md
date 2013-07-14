@@ -103,7 +103,7 @@ $anotherCls = new Std\Std($args);
 echo $anotherCls->property; // SomeText
 echo $anotherCls->testMethod(); // SomeText
 
-// Add another methopd
+// Add another method
 $anotherCls->anotherTestMethod = function(){
     $this->property = 'New text';
  	return $this->property;
@@ -131,3 +131,5 @@ echo $copiedobj->property; // 'New value only for this'
 // Not changed in current parent instance
 echo $anotherCls->property; // 'Some newtext'
 ```
+___
+© 2013 Sheikh Heera. Licensed under MIT.
