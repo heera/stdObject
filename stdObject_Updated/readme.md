@@ -35,7 +35,7 @@ $anotherCls->anotherTestMethod = function(){
 echo $anotherCls->property; // 'New text'
 echo $anotherCls->anotherTestMethod(); // 'New text'
 ```
-Create another object from <code>$anotherCls</code> and inherit (by reference) all it's functionalities and change/use.
+Create another object from <code>$anotherCls</code> and inherit (by reference) all it's functionality and change properties and use it.
 ```PHP
 $newRef = new Std\Std($anotherCls);
 $newRef->properties = 'Some newtext'
@@ -53,6 +53,11 @@ echo $copiedobj->property; // 'New value only for this'
 
 // Not changed in current parent instance
 echo $anotherCls->property; // 'Some newtext'
+```
+It's possible to use pivate properies using an underscore <code>_</code> but you can retrieve it without the underscore (Sorry for this hack) :p
+```PHP
+$clsNew->_privateProp = 'privateprop';
+echo $clsNew->privateProp; // privateprop
 ```
 ___
 © 2013 Sheikh Heera. Licensed under MIT.

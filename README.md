@@ -134,5 +134,10 @@ echo $copiedobj->property; // 'New value only for this'
 // Not changed in current parent instance
 echo $anotherCls->property; // 'Some newtext'
 ```
+It's possible to use pivate properies using an underscore <code>_</code> but you can retrieve it without the underscore (Sorry for this hack) :p
+```PHP
+$clsNew->_privateProp = 'privateprop';
+echo $clsNew->privateProp; // privateprop
+```
 ___
 © 2013 Sheikh Heera. Licensed under MIT.
