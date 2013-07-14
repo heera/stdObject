@@ -1,5 +1,6 @@
 stdObject
 =========
+####Date : 29th Jun, 2013
 
 Php stdObject to add dynamic properties and methods
 
@@ -79,6 +80,8 @@ Example using stdObject as a trait
 ```
 stdObject Updated
 =================
+####Date : 14th Jul, 2013
+
 This is the updated version of <code>stdObject</code> requires <code>PHP 5.4+</code>. This can inherit other <code>stdObjects</code> by reference and also supports cloning too.
 
 ### Some Examples are given below
