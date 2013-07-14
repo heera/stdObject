@@ -82,7 +82,7 @@ stdObject Updated
 =================
 ####Date : 14th Jul, 2013
 
-This is the updated version of <code>stdObject</code> requires <code>PHP 5.4+</code>. This can inherit other <code>stdObjects</code> by reference and also supports cloning using Clone like old one.
+This is the updated version of <code>stdObject</code> requires <code>PHP 5.4+</code>. This can inherit other <code>stdObjects</code> by reference and also supports cloning using <code>Clone</code> like old one.
 
 ### Some Examples are given below
 ```PHP
